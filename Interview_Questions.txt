@@ -5,3 +5,7 @@ Stale Error exception
 Difference between array and arraylist
 Interate hashmap using entryset
 Achieve inheritance without using extend keyword
+Finally Keyword
+Desired Capabilities
+Types of data provider in Cucumber
+Difference between array and arrayList
