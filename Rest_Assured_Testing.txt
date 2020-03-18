@@ -1,0 +1,50 @@
+Video 1:
+********
+
+Rest Assured Dependencies
+=========================
+rest-assured
+json-schema-validator
+json-path
+xml-path
+testng
+java-hamcrest
+hamcrest-core
+hamcrest-library
+
+Video 2:
+********
+
+1) Keywords in BDD
+2) How to send GET Request (WeatherAPI)
+
+URL: http://restapi.demoqa.com/utilities/weather/city/Chennai
+
+Validations:
+------------
+Status Code
+Status Line
+Response Body
+Header
+
+Given:
+	Set cookies, Add Auth, Add Param, Set Header
+
+When:
+	GET, POST, PUT, DELETE
+	
+Then:
+	Validate Response
+
+Video; 3
+********
+
+URL: http://restapi.demoqa.com/customer
+
+{
+	"FirstName": "ABC"
+	"LastName": "ABC"
+	"UserName": "ABC"
+	"Password": "ABC"
+	"Email": "ABC"
+}

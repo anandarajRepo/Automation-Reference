@@ -1,0 +1,55 @@
+Git Commands
+************
+git add .
+git commit -am "commit message"
+git push origin master
+git clone "clone URL"
+
+…or create a new repository on the command line
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/anandarajRepo/TradingviewAlgorithum.git
+git push -u origin master
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/anandarajRepo/TradingviewAlgorithum.git
+git push -u origin master
+
+
+Git Tutorial Links
+------------------
+https://medium.com/@george.seif94/a-full-tutorial-on-how-to-use-github-88466bac7d42
+
+Basic setup
+===========
+git config --global user.name "User Name"
+git config --global user.email "email"
+
+Colours
+=======
+git config --global color.ui true
+
+Initialising git
+================
+git init
+
+Adding and committing
+=====================
+git add <file>
+git commit -m 'first commit'
+
+Remote backup
+=============
+### General example
+git remote add origin https://github.com/user/repo.git
+
+### An example with a repository of mine
+git remote add origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
+
+git push origin master
+
+change remote URL
+=================
+git remote set-url origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
+
