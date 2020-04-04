@@ -36,7 +36,7 @@ When:
 Then:
 	Validate Response
 
-Video; 3
+Video 3:
 ********
 
 URL: http://restapi.demoqa.com/customer
@@ -48,3 +48,137 @@ URL: http://restapi.demoqa.com/customer
 	"Password": "ABC"
 	"Email": "ABC"
 }
+
+Video 4:
+********
+URL: http://dummy.restapiexample.com/api/v1/employee/11108
+URL: http://dummy.restapiexample.com/api/v1/update/11108
+
+Video 5:
+********
+URL: http://dummy.restapiexample.com/api/v1/delete/11108
+
+Video 6:
+********
+http://jsonplaceholder.typicode.com/posts/5
+
+1) Verify Single Content in XML Response
+
+	given()
+	 .when()
+		.get(http://services.groupkt.com/country/get/iso2code/IN)
+	 .then()
+		.body("RestResponse.result.name",equalTo("15"));
+
+2) Verify Multiple Content in XML Response
+
+	given()
+	 .when()
+		.get(http://services.groupkt.com/country/get/iso2code/IN)
+	 .then()
+		.body("RestResponse.result.name",hasItems("15", "20", "60"));
+		
+3) Set Parameters and Headers
+
+	given()
+	 .param("MyName", "Pavan")
+	 .header("MyHeader", "Indian")
+	 .when()
+		.get(http://services.groupkt.com/country/get/iso2code/IN)
+	 .then()
+		.body("RestResponse.result.name",hasItems("15", "20", "60"));
+
+Video 7:
+********
+http://thomas-bayer.com/sqlrest/CUSTOMER/15/
+
+1) Verify Single Content in XML Response
+
+	given()
+	 .when()
+		.get("http://thomas-bayer.com/sqlrest/CUSTOMER/15/")
+	 .then()
+		.body("CUSTOMER.ID",equalTo("15"));
+	
+2) Verify Multiple Content in XML Response
+
+	given()
+	 .when()
+		.get("http://thomas-bayer.com/sqlrest/CUSTOMER/15/")
+	 .then()
+		.body("CUSTOMER.ID",equalTo("15"))
+		.body("CUSTOMER.FirstName",equalTo("XYZ"))
+		.body("CUSTOMER.LastName",equalTo("ABC"));
+	
+3) Verify All Content in XML Response
+
+	given()
+	 .when()
+		.get("http://thomas-bayer.com/sqlrest/CUSTOMER/15/")
+	 .then()
+		.body("CUSTOMER.text()",equalTo("15ABCXYZ"));
+	
+4) Verify All Content in XPath in XML Response
+
+	given()
+	 .when()
+		.get("http://thomas-bayer.com/sqlrest/CUSTOMER/15/")
+	 .then()
+		.body(hasXPath("CUSTOMER/FirstName",containsString("ABC")));
+		
+	given()
+	 .when()
+		.get("http://thomas-bayer.com/sqlrest/CUSTOMER/15/")
+	 .then()
+		.body(hasXPath("CUSTOMER/FirstName[text()='30']"));
+
+Video 8:
+********
+Serialization and Deserialization Concepts
+
+Video 9:
+********
+
+Serialization and Deserialization - JSON Format
+
+Serialization
+-------------
+Created class which is implements serializable instead of Hashmap and call put request to populate the data
+
+De-Serialization
+----------------
+Student stuObj = get("API URL").as(Student.class)
+System.out.println(stuObj.getStudentRecord())
+
+Video 10:
+*********
+Serialization and Deserialization - XML Format
+
+Serializable class imports
+--------------------------
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAncesstorType;
+
+@XmlAncesstorType(XmlAccessType.Field)
+@XmlRootElement
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

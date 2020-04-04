@@ -1,0 +1,62 @@
+Appium is a Server Written in NodeJs
+
+***Driver's***
+**************
+
+Android
+-------
+UI Automator
+Selendriod
+
+IOS
+---
+UI Automation
+XCUITest
+
+Windows
+-------
+WinAppDriver
+
+***Installation on Windows***
+******************************
+
+1) Install Appium through nodejs cmd
+
+	npm install -g nodejs
+
+2) Download appium desktop client
+
+	https://github.com/appium/appium-desktop/releases/tag/v1.15.1
+	
+3) Check Installation and dependencies through appium-doctor
+	
+	npm install -g appium-doctor
+	
+***How to install real Android mobile device to windows***
+**********************************************************
+
+1) Download Android studio cmd line tool
+
+	https://developer.android.com/studio
+
+2) Unzip and extract folder
+	cmd > goto bin folder and execute below command depending on andriod version
+	sdkmanager "platform-tools" "platforms;andriod-28"
+	
+3) Set Environment variable
+	ANDROID_HOME = location android-sdk folder
+	
+4) cmd > adb devices (abd - android debug bridge)
+
+5) Make Device Ready
+	-enable developer mode
+	-make USB debugging on
+
+6) Conncet device to computer using USB cable
+	-if asked enable USB debugging
+
+7) Run command adb devices
+	abd = andriod debug bridge
+	
+***Appium automation framework using eclipse - java - testNG***
+***************************************************************

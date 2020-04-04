@@ -1,0 +1,97 @@
+Sessions 1
+==========
+
+DWH Concepts
+ETL Concepts
+SQL
+ETL Process
+ETL Tool - Query Surge
+
+What is Data Warehouse?
+Collection of data from multiple sources in one database, which can be used for analysis.
+Historical data
+Not change any data - Non volatile data
+
+Features of Data Warehouse?
+Subject orient, Integrated data, Time Varient(Data will be changed at time intervals), Non-Volatile data
+
+OLTP - Online Transaction processing - ex: Database
+OLAP - Onlice Analytical processingd - ex: Data Warehouse
+
+ETL Vs Database Testing
+-----------------------
+In Database testing we need to focus on tables, relations, columns, datatypes etc,.
+In ETL Testing focus on Data
+
+Data Model
+----------
+Data models tells logical structure of a database is modelled.
+
+1) Conceptual data model
+2) Logical data model
+3) Physical data model
+
+Conceptual Data Model
+---------------------
+1) Only entities and relationship among them
+2) No attributes
+3) No keys
+
+Logical Data Model
+------------------
+1) All entities and relationship among them
+2) Attributes (fields) for each entity (table) are specified
+3) Define keys
+
+Physical Data Model
+------------------
+1) Displays all the tables and columns
+2) Displays Keys
+3) Data Types
+
+Terminologies
+-------------
+Schema
+------
+1) Start Schema
+2) Snowflake Schema
+
+Fact table -> All tables belongs to one table -> Star Schema
+
+Slowly Changing Dimensions
+--------------------------
+1) Replaces old entry with new
+2) Creates new entry - new extra row
+3) Original entry gets modified to new entry - new columns will be added
+
+ETL Tools & BI Tools
+--------------------
+ETL Tools
+---------
+Informatica power center (Dev & Testing)
+Query Surge (Testing Tool)
+MS MSSQLSERVER SSIS
+
+Business Intelligence Tools
+---------------------------
+Business Objects
+Cognos
+Tableau
+Quickview etc,.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

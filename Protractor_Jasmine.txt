@@ -1,0 +1,84 @@
+Describe (Keyword) - Test Suite
+it (Keyword) - Test Case
+Spec - Test File
+
+To get auto suggestion of protractor script, install angularjs plugin. Then convert to tern project
+
+Promise in Javascript
+---------------------
+Javascript is asyncronous programming language.
+performing actions on browser is syncronous
+Retriveing data from browser is asyncronous in protractor. Handle it using call back function.
+
+Promise status levels
+---------------------
+Pending, resolved, rejected
+
+Global Variables
+----------------
+browser
+element
+by
+expect
+protractor
+
+New Locators
+------------
+addLocator			Add a locator to this instance of ProtractorBy.
+binding				Find an element by text binding.
+buttonText			Find a button by text.
+exactBinding		Find an element by exact binding.
+model				Find an element by ng-model expression.
+partialButtonText	Find a button by partial text.
+repeater			Find elements inside an ng-repeat.
+exactRepeater		Find an element by exact repeater.
+cssContainingText	Find elements by CSS which contain a certain string.
+options				Find an element by ng-options expression.
+deepCss				Find an element by css selector within the Shadow DOM.
+
+Aysnc call
+----------
+element(by.css("value")).gettext().then(function(text) {
+	console.log(text)
+});
+
+Assertion
+---------
+except(true).toBe(true)
+
+Jasmine also takescare of promises
+
+Run in IE
+---------
+Run cmd "webdriver-manager update --ie"
+Then change browsername in config file to "internet explorer"
+
+Execute without starting selenium server
+----------------------------------------
+Comment seleniumAddress on config file to start without starting a server
+
+Work on non-angular application
+-------------------------------
+browser.waitForAngularEnabled(false)
+
+Navigate Auto Suggestion
+------------------------
+browser.get("https://posse.com/");
+element(by.model("userInputQuery")).sendKeys("river");
+browser.actions().mouseMove(element(by.model("locationQuery")).sendKeys("london")).perform();
+browser.actions().sendKeys(protractor.Key.ARROW_DOWN).perform();
+browser.actions().sendKeys(protractor.Key.ENTER).perform();
+
+Window handle
+-------------
+browser.switchTo().window(window_name)
+
+Switch Frame
+------------
+browser.switchTo().frame(window_name)
+
+Page sync/wait
+-----------------
+Use ExpectedConditions 
+
+

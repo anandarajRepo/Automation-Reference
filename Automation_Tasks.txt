@@ -1,0 +1,12 @@
+REST API Automation (BDD Approach) 			- Done
+REST API Automation (HTTP Client)			- Done
+Protractor - Jasmine Framework				- Done
+Protractor - Cucumber Framework				- In Progress
+Appium - Mobile Testing 					- In Progress
+JIRA										- Done
+Cucumber
+Docker
+
+Jemter - Performance Testing
+Security/Penetration Testing
+ETL Testing

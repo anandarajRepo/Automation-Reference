@@ -1,0 +1,112 @@
+*******************
+TypeScript Commands
+*******************
+
+compile file "tsc main.ts"
+Auto compile use cmd "tsc main --watch"
+
+let -> can be declared without initialization
+cont -> can't be declared without initialization
+
+************************
+Variable Datatype define
+************************
+
+let total: number;
+let total: number = 500;
+
+Embedded expressions
+--------------------
+let name: string = 'Anand';
+
+let sentence: string = "Hi! my name is ${name} and im new to Typescript";
+
+Array
+-----
+let list1: number[] = [1,2,3];
+
+Mixed array datatype (Tuple)
+--------------------
+let person1: [string, number] = ['ABC', 30];
+
+Enum
+----
+enum color {Red = 5, Green, Blue}
+let c: Color = Color.Green;
+console.log(c)
+
+output -> 6
+
+Any/Unknown Type
+--------
+let randomValue: any = 10;
+
+*********
+Functions
+*********
+
+function add(num1: number, num2: number) {
+	return num1 + num2;
+}
+
+function add(num1: number, num2: number): number {
+	return num1 + num2;
+}
+
+add(5, 5);
+
+we have static type checking for parameters
+
+optional paramter
+-----------------
+function add(num1: number, num2?: number) {
+	if(num2)
+		return num1 + num2;
+	else
+		return num1;
+}
+
+default paramter
+-----------------
+function add(num1: number, num2: number = 10) {
+	if(num2)
+		return num1 + num2;
+	else
+		return num1;
+}
+
+*********
+Interface
+*********
+
+interface Person {
+	firstName: string,
+	lastName: string,
+}
+
+function fullName(person: Person) {
+	console.log('${Person.firstName} ${Person.lastName})
+}
+
+let p = {
+	firstName: 'ABC',
+	lastName: 'XYZ'
+}
+
+fullName(p)
+
+*******
+Classes
+*******
+
+class Employee {
+	employeeName: string;
+	
+	constructor Employee(name: string) {
+		this.employeeName = name;
+	}
+	
+	greet() {
+		console.log('Welcome ${this.employeeName}');
+	}
+}
