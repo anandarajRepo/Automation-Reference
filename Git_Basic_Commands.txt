@@ -55,3 +55,9 @@ git remote add origin https://github.com/user/repo.git
 ### An example with a repository of mine
 git remote add origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
 
+Pull Changes made in repository
+===============================
+git pull
+git pull --verbose
+
+## Gives verbose output during a pull which displays the content being downloaded and the merge details.
