@@ -7,8 +7,8 @@ JIRA										- Done
 Cucumber									- Done
 
 Git & GitHub								- In Progress
-Docker										- In Progress
-PowerShell Commands							- In Progress
+Docker										- Yet to Start
+PowerShell Commands							- Yet to Start
 
 Jemter - Performance Testing				- Yet to Start
 Security/Penetration Testing
