@@ -22,33 +22,40 @@ Git Tutorial Links
 https://medium.com/@george.seif94/a-full-tutorial-on-how-to-use-github-88466bac7d42
 
 Basic setup
-===========
+-----------
+gir config --list --show-origin
 git config --global user.name "User Name"
 git config --global user.email "email"
 
 Colours
-=======
+-------
 git config --global color.ui true
 
 Initialising git
-================
+----------------
 git init
 
 Adding and committing
-=====================
-git add <file>
+---------------------
+git add . --> Adds all file
+git add *.txt --> Adds all .txt extension file
+git add <file> --> Adds a specific file
 git commit -m 'first commit'
 
+Discard changes in working directory
+------------------------------------
+git discard -- <file>
+
 Push
-====
+----
 git push origin master
 
 change remote URL
-=================
+-----------------
 git remote set-url origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
 
 Remote backup
-=============
+-------------
 ### General example
 git remote add origin https://github.com/user/repo.git
 
@@ -56,8 +63,12 @@ git remote add origin https://github.com/user/repo.git
 git remote add origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
 
 Pull Changes made in repository
-===============================
+-------------------------------
 git pull
 git pull --verbose
 
 ## Gives verbose output during a pull which displays the content being downloaded and the merge details.
+
+Branch and Fork
+---------------
+Branch will create a clone in same repository. While, Fork will clone a file in someother acct's repository
