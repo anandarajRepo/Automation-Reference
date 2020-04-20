@@ -56,6 +56,7 @@ Then change browsername in config file to "internet explorer"
 Execute without starting selenium server
 ----------------------------------------
 Comment seleniumAddress on config file to start without starting a server
+add property "directConncet:true" in config file
 
 Work on non-angular application
 -------------------------------

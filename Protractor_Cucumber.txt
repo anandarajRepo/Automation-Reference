@@ -1,0 +1,239 @@
+*********************************************
+Protractor With Typescript Cucumber framework
+*********************************************
+Links
+*****
+https://github.com/cucumber/cucumber-js
+https://github.com/igniteram/protractor-cucumber-typescript
+https://www.npmjs.com/package/cucumber-html-reporter
+******
+Part 1
+******
+npm init - cmd will create package.json
+under dependencies object give all dependencies required for project
+npm install - Install all dependencies in package.json
+Typescript need import of global object. ex: browser, element etc.
+"tsc init" -> cmd to create tsconfig.json file used by protrator to convert from ts to js file
+copy required configuration properties to tsconfig.json file in your project
+"output" property in tsconfig.json-> mentions place where converted js files have to be moved
+"exclude" property in tsconfig.json-> mentions which files need not to be converted
+
+tsconfig properties
+-------------------
+"target": "es6",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
+"module": "commonjs",                    /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+"moduleResolution": "node",
+"inlineSourceMap": true,
+"declaration": false,
+"noImplicitAny": false,
+"sourceMap": false,
+"removeComments": false,
+"outDir": "./JSFiles",                        /* Redirect output structure to the directory. */
+"esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+"forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
+
+"tsc" cmd to compile Typescript files to Javascript files
+"protrator JSFiles/configuration.js" cmd to run test suite
+
+******
+Part 2
+******
+Webdriver JS - Webdriver control flow
+ES7 - async/await use these keyword to sync teststep control flow
+Page objects - use "Elementfinder" in class file of page object class
+Use "export" keyword in front of class to make it availabe in test suite
+
+Run configuration
+
+package.json
+------------
+"scripts": {
+    "protractor": "./node_modules/protractor/built/cli.js",
+    "pretest": "tsc",
+    "test": "protractor JSFiles/configuration.js",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update"
+},
+
+Run following cmd once "npm run webdriver-update"
+npm run test
+
+******
+Part 3
+******
+Cucumber dependencies for Typescript Protractor
+-----------------------------------------------
+Last 3 dependencies are required to use cucumber in typescript-protractor
+
+"dependencies": {
+	"protractor": "^5.4.3",
+	"typescript": "~3.8.3",
+	"jasmine": "~3.5.0",
+	"@types/jasmine": "2.8.7",
+	"@types/jasminewd2": "2.0.3",
+	"ts-node": "8.8.1",
+	"@types/node": "12.12.2",
+	"protractor-cucumber-framework": "6.2.1",
+	"cucumber": "6.0.5",
+	"@types/cucumber": "4.0.4"
+}
+
+From extentions in VS Code install "Cucumber Gherkins" for auto suggestions
+
+config required for cucumber integration
+---------------------------------------- 
+// set to "custom" instead of cucumber.
+framework: 'custom',
+
+// path relative to the current config file
+frameworkPath: require.resolve('protractor-cucumber-framework'),
+
+config to mention step definition path
+--------------------------------------
+cucumberOpts: {
+	// require step definitions
+	require: [
+		'path/to/step/definitions/**/*.steps.js' // accepts a glob
+	]
+}
+
+timeouts
+--------
+https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/timeouts.md
+
+search keyword "timeouts"
+
+Passing Test data from feature file
+-----------------------------------
+feature file =>
+
+Then Enter enter text "Hello" in textbox
+
+Step definition file =>
+
+Then('Enter enter text {string} in textbox', async (string) =>{
+	console.log(string);
+	await angularIoObj.searchBtn.sendKeys(string);
+});
+
+Multiple Test Data and iterate the whole test steps
+----------------------------------------------
+Use "Scenario outline"
+
+Scenario Outline: Navigating Angular Js Home Page and entering text in search text box
+
+Given browser opening Angular JS Home Page
+When I click on header hyperlink
+Then Enter enter text "<key>" in textbox
+
+Examples:
+| key |
+| Repeater |
+| Hooks |
+| Help |
+
+Chai Assertions
+---------------
+cucumber can't use jasmine assertions. So, going for chai assertions for cucumber
+
+******
+Part 4
+******
+
+Tagging cucumber - group test case and execute the specified test cases
+
+In feature file =>
+---------------
+@group1
+Scenario: Navigating Angular Js Home Page and entering text in search text box
+
+In cucumberconfig file add object tags =>
+--------------------------------------
+    cucumberOpts: {
+        // require step definitions
+        require: [
+            './stepdefinition/*.steps.js' // accepts a glob
+        ],
+        tags: "@group1",
+    }
+
+Hooks Cucumber
+--------------
+
+var {After, Before} = require('cucumber');
+
+Before(function () {
+  // This hook will be executed before all scenarios
+});
+
+Before({tags: "@foo"}, function () {
+  // This hook will be executed before scenarios tagged with @foo
+});
+
+Before({tags: "@foo and @bar"}, function () {
+  // This hook will be executed before scenarios tagged with @foo and @bar
+});
+
+Before({tags: "@foo or @bar"}, function () {
+  // This hook will be executed before scenarios tagged with @foo or @bar
+});
+
+// You can use the following shorthand when only specifying tags
+Before("@foo", function () {
+  // This hook will be executed before scenarios tagged with @foo
+});
+
+Reporting dependencies - json report
+----------------------------------
+Add format object
+
+cucumberconfig.js =>
+-----------------
+
+cucumberOpts: {
+	// require step definitions
+	format: "json:./cucumberreport.json",
+	require: [
+		'./stepdefinition/*.js' // accepts a glob
+	],
+	tags: "@group1",
+}
+
+package.json =>
+------------
+"cucumber-html-reporter": "5.2.0"
+
+
+convert json test report to html report
+---------------------------------------
+Add options in package.json =>
+---------------------------
+onComplete: () => {
+            var options = {
+                theme: 'bootstrap',
+                jsonFile: './cucumberreport.json',
+                output: 'cucumberreport.html',
+                reportSuiteAsScenarios: true,
+                launchReport: true,
+                metadata: {
+                    "App Version": "0.3.2",
+                    "Test Environment": "STAGING",
+                    "Browser": "Chrome  54.0.2840.98",
+                    "Platform": "Windows 10",
+                    "Parallel": "Scenarios",
+                    "Executed": "Remote"
+                }
+            };
+            reporter.generate(options);
+        },
+		
+Add screenshot to html report
+-----------------------------
+After( async (scenario) => {
+  // This hook will be executed before all scenarios
+  console.log("Test Completed");
+  if(scenario.result.status == Status.FAILED) {
+    const screenshot = await browser.takeScreenshot();
+    this.attach(screenshot, "image/png");
+  }
+});
+        

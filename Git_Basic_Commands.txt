@@ -18,7 +18,7 @@ git push -u origin master
 
 
 Git Tutorial Links
-------------------
+******************
 https://medium.com/@george.seif94/a-full-tutorial-on-how-to-use-github-88466bac7d42
 
 Basic setup
@@ -39,6 +39,14 @@ Adding and committing
 git add <file>
 git commit -m 'first commit'
 
+Push
+====
+git push origin master
+
+change remote URL
+=================
+git remote set-url origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
+
 Remote backup
 =============
 ### General example
@@ -46,10 +54,4 @@ git remote add origin https://github.com/user/repo.git
 
 ### An example with a repository of mine
 git remote add origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
-
-git push origin master
-
-change remote URL
-=================
-git remote set-url origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
 

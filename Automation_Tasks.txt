@@ -1,12 +1,15 @@
 REST API Automation (BDD Approach) 			- Done
 REST API Automation (HTTP Client)			- Done
 Protractor - Jasmine Framework				- Done
-Protractor - Cucumber Framework				- In Progress
-Appium - Mobile Testing 					- In Progress
+Protractor - Cucumber Framework				- Done
+Appium - Mobile Testing 					- On Hold
 JIRA										- Done
-Cucumber
-Docker
+Cucumber									- Done
 
-Jemter - Performance Testing
+Git & GitHub								- In Progress
+Docker										- In Progress
+PowerShell Commands							- In Progress
+
+Jemter - Performance Testing				- Yet to Start
 Security/Penetration Testing
 ETL Testing

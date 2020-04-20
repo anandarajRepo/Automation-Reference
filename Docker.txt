@@ -1,0 +1,7 @@
+Install Docker Toolbox, if docker is not supported for your OS.
+https://github.com/docker/toolbox/releases
+
+After installtion two app will be available,
+
+1) Docker Quickstart Terminal - cli version
+2) Kitematics - UI version
