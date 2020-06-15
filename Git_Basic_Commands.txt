@@ -1,45 +1,31 @@
-Git Commands
-************
-git add .
-git commit -am "commit message"
-git push origin master
-git clone "clone URL"
-
-…or create a new repository on the command line
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/anandarajRepo/TradingviewAlgorithum.git
-git push -u origin master
-
-…or push an existing repository from the command line
-git remote add origin https://github.com/anandarajRepo/TradingviewAlgorithum.git
-git push -u origin master
-
-
 Git Tutorial Links
 ******************
 https://medium.com/@george.seif94/a-full-tutorial-on-how-to-use-github-88466bac7d42
 
-Git clone repository
---------------------
-git clone <remote_repo>
-git clone -b <branch> <remote_repo> --> Clone form branch
-
+-----------
 Basic setup
 -----------
 gir config --list --show-origin
 git config --global user.name "User Name"
 git config --global user.email "email"
 
+-------
 Colours
 -------
 git config --global color.ui true
 
+--------------------
+Git clone repository
+--------------------
+git clone <remote_repo>
+git clone -b <branch> <remote_repo> --> Clone form branch
+
+----------------
 Initialising git
 ----------------
 git init
 
+---------------------
 Adding and committing
 ---------------------
 git add . --> Adds all file
@@ -47,26 +33,67 @@ git add *.txt --> Adds all .txt extension file
 git add <file> --> Adds a specific file
 git commit -m 'first commit'
 
+--------------------
+Advanced file adding
+--------------------
+### Adding files one by one
+git add filename
+
+### Adding all files in the current directory
+git add -A
+
+### Adding all files changes in the current directory
+git add .
+
+### Choosing what changes to add (this will got through all your  ### changes and you can 'Y' or 'N' the changes)
+git add -p
+
+### Commit staged file(s) 
+### This is typically used for shorter commit messages
+git commit -m 'commit message'
+
+### Add file and commit in one shot
+git commit filename -m 'commit message'
+
+### Add file and commit staged file
+git commit -am 'insert commit message'
+
+### Changing your most recent commit message
+git commit --amend 'new commit message' 
+
+# Combine a sequence of commits together into a single one 
+### You might use this to organise a messy commit history
+git rebase -i
+### This will give you an interface on your core editor:
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+
+------------------------------------
 Discard changes in working directory
 ------------------------------------
 git discard -- <file>
 
-Push
-----
-git push origin master
-
+-----------------
 change remote URL
 -----------------
-git remote set-url origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
+git remote set-url origin https://github.com/anandarajRepo/Sentiment-Analysis.git
 
+-------------
 Remote backup
 -------------
-### General example
-git remote add origin https://github.com/user/repo.git
+git remote add origin https://github.com/anandarajRepo/Sentiment-Analysis.git
 
-### An example with a repository of mine
-git remote add origin https://github.com/GeorgeSeif/Semantic-Segmentation-Suite.git
+----
+Push
+----
+git push -u origin master
 
+-------------------------------
 Pull Changes made in repository
 -------------------------------
 git pull
@@ -74,6 +101,64 @@ git pull --verbose
 
 ## Gives verbose output during a pull which displays the content being downloaded and the merge details.
 
-Branch and Fork
----------------
+---------
+Branching
+---------
+### Create a local branch to work on
+git checkout -b branchname
+
+### Switching between 2 branches 
+git checkout branch_1
+git checkout branch_2
+### Pushing your new local branch to remote as backup
+git push -u origin branch_2
+
+### Deleting a local branch - this won't let you delete a branch  ### that hasn't been merged yet
+git branch -d branch_2
+
+### Deleting a local branch - this WILL delete a branch even if it ### hasn't been merged yet!
+git branch -D branch_2
+
+### Viewing all current branches for the repository, including both ### local and remote branches. Great to see if you already have a ### branch for a particular feature addition, especially on bigger ### projects
+git branch -a
+
+### Viewing all branches that have been merged into your current  ### branch, including local and remote. Great for seeing where all ### your code has come from!
+git branch -a --merged
+
+### Viewing all branches that haven't been merged into your current ### branch, including local and remote
+git branch -a --no-merged
+
+### Viewing all local branches
+git branch
+
+### Viewing all remote branches
+git branch -r
+
+# Rebase master branch into local branch
+$ git rebase origin/master
+
+# Pushing local branch after rebasing master into local branch
+$ git push origin +branchname
+
+-------
+Merging
+-------
+### First make sure you're looking at master branch
+git checkout master
+
+### Now merge your branch to master
+git merge branch_2
+
+git checkout master
+git pull origin master
+git merge test
+git push origin master
+
+--------------
+Branch Vs Fork
+--------------
 Branch will create a clone in same repository. While, Fork will clone a file in someother acct's repository
+
+-------
+Forking
+-------
