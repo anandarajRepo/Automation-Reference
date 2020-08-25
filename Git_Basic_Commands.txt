@@ -1,3 +1,12 @@
+Index
+-----
+Area where Git holds files that have changed, added or removed in rediness for commit
+
+HEAD
+----
+Holds most recent commit to branch. Referred to tip of the branch.
+
+
 Git Tutorial Links
 ******************
 https://medium.com/@george.seif94/a-full-tutorial-on-how-to-use-github-88466bac7d42
@@ -23,11 +32,13 @@ git clone -b <branch> <remote_repo> --> Clone form branch
 ----------------
 Initialising git
 ----------------
-git init
+git init --It will create a .git hidden folder
 
 ---------------------
 Adding and committing
 ---------------------
+"git add" will add file to index (.git)
+
 git add . --> Adds all file
 git add *.txt --> Adds all .txt extension file
 git add <file> --> Adds a specific file
@@ -119,6 +130,10 @@ git branch -d branch_2
 ### Deleting a local branch - this WILL delete a branch even if it ### hasn't been merged yet!
 git branch -D branch_2
 
+### Deleting a remote branch
+git push <remote_name> --delete <branch_name>
+git push <remote_name> :<branch_name>
+
 ### Viewing all current branches for the repository, including both ### local and remote branches. Great to see if you already have a ### branch for a particular feature addition, especially on bigger ### projects
 git branch -a
 
@@ -159,6 +174,24 @@ Branch Vs Fork
 --------------
 Branch will create a clone in same repository. While, Fork will clone a file in someother acct's repository
 
--------
-Forking
--------
+-----
+Log's
+-----
+### view all commits
+git log
+
+### exit log screen
+q
+
+git log --oneline
+
+-----
+Stash
+-----
+Stash will save the data modified for later commit
+
+---------
+Git Fetch
+---------
+git fetch + git merge = git pull
+git fetch ## pull changes from remote repo without merging
